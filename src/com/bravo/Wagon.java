@@ -5,10 +5,10 @@ public class Wagon {
     enum WagonType {PLACKART, KUPE, LUX}
 
     private WagonType wagonType;
-    private Place[] places;
+    private Ticket[] places;
     private int freePlaces;
 
-    public Wagon(WagonType wagonType, Place[] places) {
+    public Wagon(WagonType wagonType, Ticket[] places) {
         this.wagonType = wagonType;
         this.places = places;
         countFreePlaces();
@@ -20,7 +20,7 @@ public class Wagon {
 
     private void countFreePlaces() {
         if(places != null || places.length != 0) {
-            for (Place place: places) {
+            for (Ticket place: places) {
                 if (place.isFree()) {
                     freePlaces++;
                 }

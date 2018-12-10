@@ -12,4 +12,20 @@ public class Train {
         this.stations = stations;
         this.wagons = wagons;
     }
+
+    public String getNumber() {
+        return number;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Station[] getStations() {
+        return stations;
+    }
+
+    public Wagon[] getWagons() {
+        return wagons;
+    }
 }

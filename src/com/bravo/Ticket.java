@@ -1,9 +1,10 @@
 package com.bravo;
 
-public class Place {
+public class Ticket {
     private User user;
     private String from;
     private String to;
+    private int cost;
     private boolean isFree = true;
 
     public boolean addPassnager(User user, String from, String to) {
