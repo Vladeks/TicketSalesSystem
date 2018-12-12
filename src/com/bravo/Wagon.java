@@ -2,33 +2,38 @@ package com.bravo;
 
 public class Wagon {
 
-    enum WagonType {PLACKART, KUPE, LUX}
+    enum WagonType {
+        PLACKART(54), KUPE(36), LUX(18);
+        private int placeCount;
+
+        WagonType(int placeCount) {
+            this.placeCount = placeCount;
+        }
+
+        public int getPlaceCount() {
+            return placeCount;
+        }
+    }
 
     private WagonType wagonType;
-    private Ticket[] places;
+    private Place[] places;
     private int freePlaces;
 
-    public Wagon(WagonType wagonType, Ticket[] places) {
+    public Wagon(WagonType wagonType) {
         this.wagonType = wagonType;
-        this.places = places;
-        countFreePlaces();
+        placeFactory(wagonType);
     }
 
     public int getFreePlaces() {
         return freePlaces;
     }
 
-    private void countFreePlaces() {
-        if(places != null || places.length != 0) {
-            for (Ticket place: places) {
-                if (place.isFree()) {
-                    freePlaces++;
-                }
-            }
-        } else {
-            freePlaces = 0;
+    private void placeFactory(WagonType type) {
+        places = new Place[type.getPlaceCount()];
+        freePlaces = type.getPlaceCount();
+        for (int i = 0; i < type.getPlaceCount(); i++) {
+            places[i] = new Place(i);
         }
-
     }
 
 }

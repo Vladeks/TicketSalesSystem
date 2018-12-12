@@ -3,13 +3,13 @@ package com.bravo;
 public class Train {
     private String number;
     private String name;
-    private Station[] stations;
+    private TrainStop[] stops;
     private Wagon[] wagons;
 
-    public Train(String number, String name, Station[] stations, Wagon[] wagons) {
+    public Train(String number, String name, TrainStop[] stations, Wagon[] wagons) {
         this.number = number;
         this.name = name;
-        this.stations = stations;
+        this.stops = stations;
         this.wagons = wagons;
     }
 
@@ -21,8 +21,8 @@ public class Train {
         return name;
     }
 
-    public Station[] getStations() {
-        return stations;
+    public TrainStop[] getStops() {
+        return stops;
     }
 
     public Wagon[] getWagons() {
